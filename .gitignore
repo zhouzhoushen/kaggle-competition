@@ -1,0 +1,9 @@
+# VSCode configuration
+.vscode/
+
+# Python cache
+__pycache__/
+
+# Data that can be downloaded
+**/data/
+**/*.csv
