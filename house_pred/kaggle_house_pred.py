@@ -26,7 +26,7 @@ import hashlib
 DATA_HUB = dict()
 DATA_URL = "http://d2l-data.s3-accelerate.amazonaws.com/"
 
-def download(fname, cache_dir = os.path.join(".", "house-pred", "data")):
+def download(fname, cache_dir = os.path.join(".", "house_pred", "data")):
     assert fname in DATA_HUB, f"{fname} is not in DATA_HUB."
     os.makedirs(cache_dir, exist_ok = True)
 
@@ -198,7 +198,7 @@ def train_and_pred(net, loss, optim_func, train_features, train_labels, test_fea
     preds = net(test_features).cpu().detach().numpy()
     test_raw["SalePrice"] = pd.Series(preds.reshape((1, -1))[0])
     submission = pd.concat([test_raw["Id"], test_raw["SalePrice"]], axis = 1)
-    submission.to_csv("./house-pred/submission.csv", index = False)
+    submission.to_csv("./house_pred/submission.csv", index = False)
 
 # Step4: write script to run.
 lr = 1
